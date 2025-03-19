@@ -1,0 +1,213 @@
+	CREATE DATABASE Snack;
+			
+	USE Snack;
+			
+	SHOW TABLES;
+			
+	-- Tabela clientes
+	CREATE TABLE clientes (
+		codigo INT PRIMARY KEY,
+		nome VARCHAR(255),
+		email VARCHAR(255),
+		senha VARCHAR(255)
+	);
+
+	-- Tabela produtos
+	CREATE TABLE produtos (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		nome VARCHAR(255),
+		descricao TEXT,
+		preco DECIMAL(10, 2),
+		imagem VARCHAR(255),
+		categoria VARCHAR(255)
+	);
+
+	-- Tabela adicionais
+	CREATE TABLE adicionais (
+		id INT PRIMARY KEY,
+		nome VARCHAR(255),
+		preco DECIMAL(10, 2)
+	);
+
+	drop table funcionario;
+	CREATE TABLE funcionario (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		codigo_unico VARCHAR(10) UNIQUE,
+		nome VARCHAR(255),
+		email VARCHAR(255),
+		senha VARCHAR(255),
+		is_admin BOOLEAN DEFAULT FALSE
+	);
+
+	INSERT INTO funcionario (codigo_unico, nome, email, senha, is_admin) VALUES ('112', 'Funcionario Nome', 'f@f', 'senha123', FALSE);
+
+	INSERT INTO funcionario (codigo_unico, nome, email, senha, is_admin) VALUES ('111', 'Admin Nome', 'a@a', '123', TRUE);
+
+
+	-- Tabela carrinho
+	CREATE TABLE carrinho (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		cliente_id INT,
+		FOREIGN KEY (cliente_id) REFERENCES clientes(codigo)
+	);
+
+	-- Tabela itens_carrinho
+	CREATE TABLE itens_carrinho (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		carrinho_id INT,
+		produto_id INT,
+		quantidade INT,
+		FOREIGN KEY (carrinho_id) REFERENCES carrinho(id),
+		FOREIGN KEY (produto_id) REFERENCES produtos(id)
+	);
+
+	DROP TABLE IF EXISTS agendamentos;
+
+CREATE TABLE agendamentos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_id INT,
+    data DATE,
+    horario TIME,
+    produtos JSON,
+    status VARCHAR(255),
+    observacoes VARCHAR(255),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(codigo)
+);
+
+
+INSERT INTO agendamentos (cliente_id, data, horario, produtos, status, observacoes)
+VALUES 
+(1, '2025-03-12', '12:32:00', '[{"nome":"American Dog","preco":12.00,"quantidade":1,"observacoes":"","adicionais":[{"nome":"Cheddar","preco":1.00}]}]', 'Feito', 'Sem cebola'),
+(2, '2025-03-12', '13:00:00', '[{"nome":"Sampa Dog","preco":13.00,"quantidade":2,"observacoes":"","adicionais":[{"nome":"Bacon","preco":2.00},{"nome":"Queijo","preco":1.50}]}]', 'Pendente', 'Com tudo');
+
+	INSERT INTO agendamentos (cliente_id, data, horario, produtos, status, observacoes)
+	VALUES (1, '2024-04-26', '12:00:00', '{"produto": "Hamburguer", "quantidade": 2}', 'Pendente', 'Sem cebola');
+	select * from agendamentos;
+
+
+
+	ALTER TABLE agendamentos ADD observacoes VARCHAR(255);
+
+	CREATE TABLE pedidos_cancelados (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		cliente_id INT NOT NULL,
+		data DATE,
+		horario TIME,
+		produtos JSON,
+		status VARCHAR(50) DEFAULT 'Cancelado',
+		cancelado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		FOREIGN KEY (cliente_id) REFERENCES clientes(codigo)
+	);
+
+
+
+
+	drop table pedidos;
+	select * from pedidos;
+	-- Tabela pedidos
+	CREATE TABLE pedidos (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		cliente_id INT,
+		data DATE,
+		horario TIME,
+		produtos JSON,
+		status VARCHAR(255),
+		FOREIGN KEY (cliente_id) REFERENCES clientes(codigo)
+	);
+
+
+	select * from pedidos;
+
+	-- Tabela produto_adicionais
+	CREATE TABLE produto_adicionais (
+		produto_id INT,
+		adicional_id INT,
+		PRIMARY KEY (produto_id, adicional_id),
+		FOREIGN KEY (produto_id) REFERENCES produtos(id),
+		FOREIGN KEY (adicional_id) REFERENCES adicionais(id)
+	);
+
+	-- Tabela contatos
+	CREATE TABLE contatos (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		nome VARCHAR(255),
+		email VARCHAR(255),
+		mensagem TEXT,
+		data_envio DATETIME
+	);
+
+
+		
+
+	-- Tabela adicionais
+	INSERT INTO adicionais (id, nome, preco) VALUES
+	(1, 'Cheddar', 1.00),
+	(2, 'Bacon', 2.00),
+	(9, 'Queijo e Bacon', 6.00),
+	(10, 'Alface e Tomate', 3.00);
+
+	-- Tabela agendamentos
+	INSERT INTO agendamentos (id, cliente_id, data, horario, produtos, status) VALUES
+	(9, 2, '2222-02-12', '12:32:00', '[{"nome":"American Dog","preco":"12.00","adicional_nome":"","adicional_preco":0,"quantidade":1,"observacoes":""}]', 'Pendente'),
+	(10, 4, '0000-00-00', '12:32:00', '[{"nome":"Suco Natural Goiaba","preco":"3.00","adicional_nome":"","adicional_preco":0,"quantidade":1,"observacoes":""}]', 'Pendente'),
+	(52, 1, '2025-03-12', '12:32:00', '[{"nome":"American Dog","preco":"12.00","adicional_nome":"Cheddar","adicional_preco":1,"quantidade":1,"observacoes":""}]', 'Feito'),
+	(53, 1, '2025-03-12', '12:04:00', '[{"nome":"American Dog","preco":"12.00","adicional_nome":"Cheddar","adicional_preco":1,"quantidade":1,"observacoes":""}]', 'Pendente');
+
+	-- Tabela clientes
+	INSERT INTO clientes (codigo, nome, email, senha) VALUES
+	(1, 'Davi Leite Valero', 'e@e', '123'),
+	(2, 'GIOVANNA', 'gi@gi', '123'),
+	(3, 'GIOVANNA', 'd@d', '123'),
+	(4, 'Pedro do grau', 'p@p', '123');
+
+	-- Tabela contatos
+	INSERT INTO contatos (nome, email, mensagem, data_envio) VALUES
+	('Davi Leite Valero', 'e@e', 'sdasda', '2025-03-13 17:06:04'),
+	('sdaasdsads', 'dadsasd@da', 'asdasdasdas', '2025-03-14 14:48:51'),
+	('sdaasdsads', 'dadsasd@da', 'asdasdasdas', '2025-03-14 14:53:27'),
+	('sdaasdsads', 'dadsasd@da', 'asdasdasdas', '2025-03-14 14:53:33'),
+	('sdasdasda', 'dsa@dsa', 'mejdfsainbda', '2025-03-14 15:48:06'),
+	('sdasdasda', 'dsa@dsa', 'mejdfsainbda', '2025-03-14 15:53:29');
+
+	-- Tabela funcionario
+	INSERT INTO funcionario (id, codigo_unico, nome, email, senha) VALUES
+	(1, '123', 'João Silva', 'j@j', '123'),
+	(2, '321', 'João Silva', 'j@j', '123'),
+	(13221, '123231321', 'dasdasdas', 'a@a', '123');
+
+	-- Tabela produtos
+	INSERT INTO produtos (nome, descricao, preco, imagem, categoria) VALUES
+	('American Dog', 'Pão, Salsicha, Purê de Batata, Ketchup, Maionese e Batata Palha.', 12.00, 'american_dog.png', 'hotdog'),
+	('Sampa Dog', 'Pão, Salsicha, Purê de Batata, Vinagrete, Milho, Cheddar, Catupiry, Ketchup, Maionese e Batata Palha.', 13.00, 'sampa_dog.png', 'hotdog'),
+	('Dog Especial', 'Baguete com Parmesão, 2 Salsichas, Purê de Batata, Vinagrete, Milho, Cheddar, Catupiry, Ketchup, Maionese e Batata Palha.', 15.00, 'dog_especial.png', 'hotdog'),
+	('Dog Supremo', 'Baguete com Parmesão, 2 Salsichas, Purê de Batata, Vinagrete, Milho, Cheddar, Catupiry, Ketchup, Maionese e Batata Palha.', 17.00, 'dog_supremo.png', 'hotdog'),
+	('Cheese Burguer', 'Pão, Hambúrguer, Queijo, Cheddar e Maionese.', 9.00, 'cheese_burguer.png', 'hamburguer'),
+	('Burguer Bacon', 'Pão, Hambúrguer, Bacon, Queijo, Cheddar e Maionese.', 13.00, 'burguer_bacon.png', 'hamburguer'),
+	('Burguer Salada', 'Pão, Hambúrguer, Alface, Tomate, Cheddar e Maionese.', 13.00, 'burguer_salada.png', 'hamburguer'),
+	('Big Burguer Bacon', 'Pão, 2 Hambúrgueres, Bacon, Queijo, Cheddar e Maionese.', 16.00, 'big_burguer_bacon.png', 'hamburguer'),
+	('Mega Calabresa', 'Baguete com Parmesão, Calabresa, Mussarela, Cheddar, Vinagrete, Maionese, Ketchup, Cebola e Orégano.', 19.00, 'mega_calabresa.png', 'sanduiche'),
+	('Mega Frango', 'Baguete com Parmesão, Frango Temperado e Desfiado, Mussarela, Milho, Catupiry, Ketchup, Maionese e Orégano.', 20.00, 'mega_frango.png', 'sanduiche'),
+	('Mega Toscana', 'Baguete com Parmesão, Linguiça Toscana, Mussarela, Vinagrete, Ketchup, Maionese e Orégano.', 20.00, 'mega_calabresa.png', 'sanduiche'),
+	('Mega Pernil', 'Baguete com Parmesão, Pernil, Mussarela, Orégano, Vinagrete, Ketchup, Maionese e Barbecue.', 19.00, 'mega_pernil.png', 'sanduiche'),
+	('Guaraná Antártica (Lata)', '350ml.', 6.00, 'guarana_antartica.png', 'bebida'),
+	('Coca-Cola (lata)', '350ml.', 6.00, 'coca_cola.png', 'bebida'),
+	('Água Mineral', '500ml.', 3.00, 'agua.png', 'bebida'),
+	('Café', '180ml.', 3.00, 'cafe.png', 'bebida'),
+	('Café com Leite', '180ml.', 3.00, 'cafe.png', 'bebida'),
+	('Suco Natural Goiaba', '300ml.', 3.00, 'suco_goiaba.png', 'bebida'),
+	('Suco Natural Maracujá', '350ml.', 3.00, 'suco_maracuja.png', 'bebida');
+
+	INSERT INTO produto_adicionais (produto_id, adicional_id) VALUES
+	(1, 1), -- American Dog com Cheddar
+	(2, 9), -- Sampa Dog com Queijo e Bacon
+	(3, 9), -- Dog Especial com Queijo e Bacon
+	(4, 9), -- Dog Supremo com Queijo e Bacon
+	(6, 2), -- Burguer Bacon com Bacon
+	(6, 9), -- Burguer Bacon com Queijo e Bacon
+	(7, 10), -- Burguer Salada com Alface e Tomate
+	(7, 2), -- Burguer Salada com Bacon
+	(8, 2), -- Big Burguer Bacon com Bacon
+	(8, 9); -- Big Burguer Bacon com Queijo e Bacon
+			
+		
+
