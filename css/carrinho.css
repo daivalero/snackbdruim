@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+h1 {
+    padding: 30px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    color: #000;
+}
+.box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+th {
+    background-color: #f2f2f2;
+}
+.product-name {
+    color: #DF8B03;
+}
+.observacoes {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.actions {
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-danger {
+    background-color: transparent;
+    color: #FF0303;
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.btn-danger:hover {
+    color: #ffffff;
+}
+.btn-agendar, .btn-continuar {
+    background-color: #DF8B03;
+    color: #000;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+.btn-agendar:hover, .btn-continuar:hover {
+    background-color: #c97a02;
+}
+.total {
+    font-weight: bold;
+    color: #000;
+    font-size: 20px;
+}
+.total span {
+    color: #3d9e19;
+    font-size: 20px;
+}
+.price {
+    color: #3d9e19;
+}
+.truncate {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.green-price {
+    color: #3d9e19;
+}
+
+.observacoes-cell {
+    position: relative;
+    word-break: break-word;
+    white-space: normal;
+    text-align: left; /* Alinha o texto à esquerda por padrão */
+}
+
+.observacoes-cell a {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.observacoes-cell.observacoes-vazias {
+    text-align: center; /* Centraliza o lápis quando não há texto */
+}
+
+.observacoes-cell.observacoes-vazias a {
+    position: static; /* Remove o posicionamento absoluto */
+    display: inline-block; /* Permite centralizar o elemento */
+}
+
+.lapis-icone path {
+    fill: rgb(0, 0, 0);
+}
+
+.lapis-icone:hover path {
+    fill: #c97a02;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    border: 2px solid #c97a02;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+
+.modal-header {
+    border-bottom: 1px solid #c97a02;
+}
+
+.modal-title {
+    color: #c97a02;
+}
+
+.modal-body {
+    background-color: white;
+}
+
+.modal-footer {
+    border-top: 1px solid #c97a02;
+}
+
+.btn-primary {
+    background-color: #c97a02;
+    border-color: #c97a02;
+}
+
+.btn-primary:hover {
+    background-color: #a66502;
+    border-color: #a66502;
+}

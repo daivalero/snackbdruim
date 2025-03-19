@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+h1 {
+    padding: 30px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    color: #000;
+}
+.box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+th {
+    background-color: #f2f2f2;
+}
+.product-name {
+    color: #DF8B03;
+}
+.observacoes {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.actions {
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-danger {
+    background-color: transparent;
+    color: #FF0303;
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.btn-danger:hover {
+    color: #ffffff;
+}
+.btn-agendar, .btn-continuar {
+    background-color: #DF8B03;
+    color: #000;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+.btn-agendar:hover, .btn-continuar:hover {
+    background-color: #c97a02;
+}
+.total {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}

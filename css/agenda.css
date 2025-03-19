@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+body {
+    background-color: #f9f9f9;
+    color: black;
+}
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    border: none; /* Remover a borda */
+}
+h1, h2 {
+    color: #DF8B03;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700; /* Aumentar a grossura da letra */
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group svg, .form-group img {
+    margin-right: 10px;
+}
+.form-group p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+.form-control {
+    width: calc(100% - 36px);
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.btn-primary {
+    background-color: #DF8B03;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.btn-primary:hover {
+    background-color: #c97a02;
+}
+.modal-content {
+    font-family: 'Josefin Sans', sans-serif;
+}
+.modal-title {
+    color: #DF8B03;
+    font-weight: 700; /* Aumentar a grossura da letra */
+    padding: 0px 0px;
+}
+.link-danger {
+    color: #DF8B03;
+    font-weight: bold;
+    cursor: pointer;
+}
+.link-danger:hover {
+    text-decoration: underline;
+    color: #c97a02;
+}
+.btnvoltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px;
+    transition: background-color 0.5s;
+    font-weight: bold; /* Letras mais grossas */
+    color: #DF8B03;
+    justify-content:right;
+}
+.btnvoltar:hover {
+    background-color: #DF8B03;
+    color: #fff;
+}
+.btnvoltar-danger {
+    background-color: transparent;
+    color: #DF8B03;
+    border: 1px solid #DF8B03;
+    cursor: pointer;
+}
+.btnvoltar-danger:hover {
+    background-color: #DF8B03;
+    color: #fff;
+}
+
+
+.btnfechar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px;
+    transition: background-color 0.5s;
+    font-weight: bold; /* Letras mais grossas */
+    color: #df1503;
+}
+.btnfechar:hover {
+    background-color: #df1503;
+    color: #fff;
+}
+.btnfechar-danger {
+    background-color: transparent;
+    color: #DF8B03;
+    border: 1px solid #DF8B03;
+    cursor: pointer;
+}
+.btnfechar-danger:hover {
+    background-color: #DF8B03;
+    color: #fff;
+}
+
+.qr-code {
+    margin-top: 5px;
+    width: 300px; /* Ajuste a largura desejada */
+    height: 300px; /* Ajuste a altura desejada */
+}
+
+
+
+
+.dinheiro{
+    color: forestgreen;
+}

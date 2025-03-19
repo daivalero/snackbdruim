@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #DF8B03;
+    padding: 10px 0;
+}
+
+header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .img img {
+    max-width: 80px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #DF8B03;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.5s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+}
+
+nav ul li a:hover {
+    background-color: #fff;
+    color: #c97a02;
+}
+
+h1 {
+    padding: 15px;
+    text-align: center;
+    font-size: 40px;
+    color: #DF8B03;
+    margin-bottom: 20px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.custom-table th, .custom-table td {
+    border: 1px solid #DF8B03;
+    padding: 10px;
+    text-align: left;
+}
+
+.custom-table th {
+    background-color: #DF8B03;
+    color: white;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.custom-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btnvoltar {
+    color: #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 14px;
+    background-color: #DF8B03;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.5s;
+    font-weight: bold;
+}
+
+.btnvoltar:hover {
+    background-color: #fff;
+    color: #c97a02;
+}
+
+footer {
+    height: 70px;
+    background-color: #DF8B03;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: 270px;
+}
